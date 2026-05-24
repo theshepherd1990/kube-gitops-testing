@@ -30,12 +30,12 @@ spec:
     onError: true
     onClose: false
     deployTemplate: |
-      ðŸš€ Preview deployed: {{.URL}}
+      Preview deployed: {{.URL}}
 
       Branch: `{{.Branch}}`
       Commit: `{{.SHA}}`
     errorTemplate: |
-      âŒ Preview deployment failed for `{{.Branch}}`: {{.Error}}
+      Preview deployment failed for `{{.Branch}}`: {{.Error}}
 
   prDeploy:
     namespace: kube-gitops-testing-previews
@@ -50,3 +50,5 @@ spec:
     run:
       port: 3000
       replicas: 1
+      command: ["nginx", "-g", "daemon off;"]
+      
