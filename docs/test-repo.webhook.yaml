@@ -36,7 +36,7 @@ spec:
       Branch: `{{.Branch}}`
       Commit: `{{.SHA}}`
     errorTemplate: |
-      âŒ Preview deployment failed for `{{.Branch}}`: {{.Error}}
+       Preview deployment failed for `{{.Branch}}`: {{.Error}}
 
   prDeploy:
     namespace: kube-gitops-testing-previews
@@ -44,10 +44,11 @@ spec:
     ingressHostTemplate: "kube-gitops-testing-pr-{{.PRNumber}}.centerionware.com"
     injectPREnv: true
 
+    run:
+      port: 80
+      replicas: 1
+      command: ["nginx", "-g", "daemon off;"]
+
     ingress:
       enabled: true
       className: cloudflare-tunnel
-
-    run:
-      port: 3000
-      replicas: 1
