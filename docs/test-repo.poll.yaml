@@ -48,7 +48,7 @@ spec:
       className: cloudflare-tunnel
 
     run:
-      port: 3000
+      port: 80
       replicas: 1
       command: ["nginx", "-g", "daemon off;"]
       healthCheck:
