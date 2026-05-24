@@ -51,4 +51,6 @@ spec:
       port: 3000
       replicas: 1
       command: ["nginx", "-g", "daemon off;"]
+      healthCheck:
+        path: /
       
