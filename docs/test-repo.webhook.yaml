@@ -48,7 +48,8 @@ spec:
       port: 80
       replicas: 1
       command: ["nginx", "-g", "daemon off;"]
-
+      healthCheck:
+        path: /
     ingress:
       enabled: true
       className: cloudflare-tunnel
